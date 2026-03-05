@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy 23rd Sarah 🤍</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background: linear-gradient(to bottom,#ffd1dc,#ff9eb5);
+    overflow-x:hidden;
+}
+
+h1{
+    color:white;
+    margin-top:40px;
+}
+
+.balloon{
+    width:80px;
+    height:100px;
+    border-radius:50%;
+    position:absolute;
+    cursor:pointer;
+    animation: float 3s ease-in-out infinite;
+}
+
+.string{
+    width:2px;
+    height:60px;
+    background:white;
+    position:absolute;
+    top:100px;
+    left:50%;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0px);}
+}
+
+.final-section{
+    padding:40px 20px;
+    color:white;
+}
+
+.photo{
+    width:280px;
+    border-radius:20px;
+    margin:20px auto;
+    display:block;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.long-message{
+    max-height:300px;
+    overflow-y:auto;
+    margin:30px auto;
+    padding:20px;
+    width:90%;
+    max-width:600px;
+    background:rgba(255,255,255,0.2);
+    border-radius:20px;
+    text-align:left;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Pecahin 25 balonnya yaa 🎈</h1>
+
+<script>
+let count = 0;
+let total = 25;
+
+function createBalloon(){
+    if(count >= total){
+        showFinal();
+        return;
+    }
+
+    let balloon = document.createElement("div");
+    balloon.className = "balloon";
+    balloon.style.background = randomColor();
+    balloon.style.top = Math.random()*400 + 100 + "px";
+    balloon.style.left = Math.random()*300 + 50 + "px";
+
+    let string = document.createElement("div");
+    string.className = "string";
+    balloon.appendChild(string);
+
+    balloon.onclick = function(){
+        balloon.remove();
+        count++;
+        createBalloon();
+    };
+
+    document.body.appendChild(balloon);
+}
+
+function randomColor(){
+    const colors = ["#ff4d6d","#ff85a1","#f72585","#b5179e","#7209b7","#560bad","#480ca8","#3a0ca3","#4361ee","#4895ef"];
+    return colors[Math.floor(Math.random()*colors.length)];
+}
+
+function showFinal(){
+    document.body.innerHTML = `
+    <div class="final-section">
+        <h1>23rd looks perfect on you 🤍</h1>
+
+        <img src="fotokita.jpg" class="photo">
+
+        <div class="long-message">
+        <p>
+Happy 23rd birthday, my favorite human, Sarah Salsabila Ahmad 🤍
+
+23 years of you being alive in this world, dan aku yg paling beruntung bisa kenal kamu sedekat ini.
+
+Dari best friend… jadi love.  
+Still my best friend.  
+Now my love.  
+And if God allows, my forever 🤍  
+
+Di umur 23 ini aku doain kamu bukan cuma bahagia, tapi damai.  
+Damai sama diri kamu sendiri. Damai sama masa lalu kamu.
+
+And if one day kamu nanya, kamu yakin sama aku?  
+Jawabannya akan selalu sama.  
+
+It's you. It's always you 💕
+
+Sekali lagi Happy 23rd birthday, sayang 💖  
+I’m here. And I’m not going anywhere 🤍
+        </p>
+        </div>
+    </div>
+    `;
+}
+
+createBalloon();
+</script>
+
+</body>
+</html>
